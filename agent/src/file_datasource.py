@@ -37,7 +37,7 @@ class FileDatasource:
         return Accelerometer(*map(float, column));
 
     def readGpsData(self):
-        # longitude, longitude
+        # gps details
         try:
             column = next(reader(self.gps_file));
             return Gps(*map(float, column));
@@ -52,11 +52,6 @@ class FileDatasource:
         # Skipping the columns with names
         next(self.accelerometer_file);
         next(self.gps_file);
-        # while True:
-        #     try:
-        #         yield self.read()
-        #     except StopIteration:
-        #         self.startReading()  # Reopen files and start a new iteration if StopIteration appears
 
     def stopReading(self, *args, **kwargs):
         if self.accelerometer_file:
