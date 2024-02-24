@@ -42,7 +42,8 @@ class FileDatasource:
             column = next(reader(self.gps_file));
             return Gps(*map(float, column));
         except StopIteration:
-            return None  # Or raise a custom exception if preferred
+            column = next(reader(self.gps_file));
+            return Gps(*map(float, column));  # Or raise a custom exception if preferred
 
     def startReading(self, *args, **kwargs):
         self.accelerometer_file = open(self.accelerometer_filename, 'r');
