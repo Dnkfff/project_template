@@ -30,7 +30,7 @@ class FileDatasource:
                     config.USER_ID
                 )
             except StopIteration:
-                self.startReading()  # Reopen files when end of file is reached
+                self.startReading()  # Reopen files when end of file is reached making that infinite loop
 
     def readAccelerometeData(self):
         column = next(reader(self.accelerometer_file))
