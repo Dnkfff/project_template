@@ -718,3 +718,59 @@
 1708818043: Client auto-F0EA7304-7B7D-14B0-63AD-FAE9BDF56EC3 closed its connection.
 1708818190: mosquitto version 2.0.18 terminating
 1708818190: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1708818197: mosquitto version 2.0.18 starting
+1708818197: Config loaded from /mosquitto/config/mosquitto.conf.
+1708818197: Opening ipv4 listen socket on port 1883.
+1708818197: Opening ipv6 listen socket on port 1883.
+1708818197: mosquitto version 2.0.18 running
+1708818197: New connection from 172.19.0.1:57426 on port 1883.
+1708818197: New client connected from 172.19.0.1:57426 as mqtt-explorer-6cf00dd1 (p2, c1, k60).
+1708818199: New connection from 172.19.0.3:53133 on port 1883.
+1708818199: New client connected from 172.19.0.3:53133 as auto-A12185BB-5FCF-A15A-49E7-EA5FDAFEAF38 (p2, c1, k60).
+1708818325: Client auto-A12185BB-5FCF-A15A-49E7-EA5FDAFEAF38 closed its connection.
+1708819997: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1708821798: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1708822449: New connection from 172.19.0.3:54255 on port 1883.
+1708822449: New client connected from 172.19.0.3:54255 as auto-AFF93B30-DF0E-F3EA-E501-54A981077AC0 (p2, c1, k60).
+1708822575: Client auto-AFF93B30-DF0E-F3EA-E501-54A981077AC0 closed its connection.
+1708822863: mosquitto version 2.0.18 terminating
+1708822863: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1708822870: mosquitto version 2.0.18 starting
+1708822870: Config loaded from /mosquitto/config/mosquitto.conf.
+1708822870: Opening ipv4 listen socket on port 1883.
+1708822870: Opening ipv6 listen socket on port 1883.
+1708822870: mosquitto version 2.0.18 running
+1708822870: New connection from 172.19.0.1:57436 on port 1883.
+1708822870: New client connected from 172.19.0.1:57436 as mqtt-explorer-6cf00dd1 (p2, c1, k60).
+1708822872: New connection from 172.19.0.3:48273 on port 1883.
+1708822872: New client connected from 172.19.0.3:48273 as auto-7412CA33-352D-0161-0A5C-AF46E0C2609F (p2, c1, k60).
+1708822998: Client auto-7412CA33-352D-0161-0A5C-AF46E0C2609F closed its connection.
+1708823415: Client mqtt-explorer-6cf00dd1 disconnected.
+1708823599: New connection from 172.19.0.1:57440 on port 1883.
+1708823599: New client connected from 172.19.0.1:57440 as mqtt-explorer-6cf00dd1 (p2, c1, k60).
+1708823605: mosquitto version 2.0.18 terminating
+1708823605: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1708823620: mosquitto version 2.0.18 starting
+1708823620: Config loaded from /mosquitto/config/mosquitto.conf.
+1708823620: Opening ipv4 listen socket on port 1883.
+1708823620: Opening ipv6 listen socket on port 1883.
+1708823620: mosquitto version 2.0.18 running
+1708823621: New connection from 172.19.0.1:57444 on port 1883.
+1708823621: New client connected from 172.19.0.1:57444 as mqtt-explorer-6cf00dd1 (p2, c1, k60).
+1708823622: New connection from 172.19.0.3:50185 on port 1883.
+1708823622: New client connected from 172.19.0.3:50185 as auto-02553304-A5DF-A2FA-2FC3-0F0B95016E1A (p2, c1, k60).
+1708823748: Client auto-02553304-A5DF-A2FA-2FC3-0F0B95016E1A closed its connection.
+1708823775: mosquitto version 2.0.18 terminating
+1708823775: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1708823882: mosquitto version 2.0.18 starting
+1708823882: Config loaded from /mosquitto/config/mosquitto.conf.
+1708823882: Opening ipv4 listen socket on port 1883.
+1708823882: Opening ipv6 listen socket on port 1883.
+1708823882: mosquitto version 2.0.18 running
+1708823882: New connection from 172.19.0.1:57450 on port 1883.
+1708823882: New client connected from 172.19.0.1:57450 as mqtt-explorer-6cf00dd1 (p2, c1, k60).
+1708823884: New connection from 172.19.0.3:40321 on port 1883.
+1708823884: New client connected from 172.19.0.3:40321 as auto-F6A76622-CCFA-131C-B195-FA4A5AAFED97 (p2, c1, k60).
+1708824010: Client auto-F6A76622-CCFA-131C-B195-FA4A5AAFED97 closed its connection.
+1708824033: mosquitto version 2.0.18 terminating
+1708824033: Saving in-memory database to /mosquitto/data//mosquitto.db.
