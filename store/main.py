@@ -56,7 +56,6 @@ Base.metadata.create_all(engine)
 SessionLocal = sessionmaker(bind=engine)
 
 
-# SQLAlchemy model
 class ProcessedAgentDataInDB(BaseModel):
     id: int
     road_state: str
@@ -105,6 +104,23 @@ class ProcessedAgentData(BaseModel):
     road_state: str
     agent_data: AgentData
 
+def convert_agent_data(raw_data: ProcessedAgentData) -> ProcessedAgentDataDbModel:
+  # Converts a ProcessedAgentData model to a ProcessedAgentDataDbModel instance.
+
+  # Create a dictionary for field-value pairs
+  data_dict = {
+    "road_state": raw_data.road_state,
+    "user_id": raw_data.agent_data.user_id,
+    "x": raw_data.agent_data.accelerometer.x,
+    "y": raw_data.agent_data.accelerometer.y,
+    "z": raw_data.agent_data.accelerometer.z,
+    "latitude": raw_data.agent_data.gps.latitude,
+    "longitude": raw_data.agent_data.gps.longitude,
+    "timestamp": raw_data.agent_data.timestamp,
+  }
+
+  # Construct the model instance using keyword arguments
+  return ProcessedAgentDataDbModel(**data_dict)
 
 # WebSocket subscriptions
 subscriptions: Dict[int, Set[WebSocket]] = {}
@@ -130,28 +146,9 @@ async def send_data_to_subscribers(user_id: int, data):
         for websocket in subscriptions[user_id]:
             await websocket.send_json(json.dumps(data))
 
-def convert_agent_data(raw_data: ProcessedAgentData) -> ProcessedAgentDataDbModel:
-  #Converts a ProcessedAgentData model to a ProcessedAgentDataDbModel instance.
-
-  # Create a dictionary for field-value pairs
-  data_dict = {
-    "road_state": raw_data.road_state,
-    "user_id": raw_data.agent_data.user_id,
-    "x": raw_data.agent_data.accelerometer.x,
-    "y": raw_data.agent_data.accelerometer.y,
-    "z": raw_data.agent_data.accelerometer.z,
-    "latitude": raw_data.agent_data.gps.latitude,
-    "longitude": raw_data.agent_data.gps.longitude,
-    "timestamp": raw_data.agent_data.timestamp
-  }
-
-  # Construct the model instance using keyword arguments
-  return ProcessedAgentDataDbModel(**data_dict)
-
-
 
 # FastAPI CRUDL endpoints
-
+# Створює та додає процеси агента в базу
 @app.post("/processed_agent_data/",)
 async def create_processed_agent_data(data: List[ProcessedAgentData]):
     # Creates and inserts multiple processed agent data entries into the database.
@@ -167,8 +164,7 @@ async def create_processed_agent_data(data: List[ProcessedAgentData]):
             await send_data_to_subscribers(processed_subscriber, converted_data)
 
     return converted_data
-
-
+#видає одну ентіті
 @app.get(
     "/processed_agent_data/{processed_agent_data_id}",
     response_model=Union[ProcessedAgentDataInDB, None],
@@ -182,7 +178,7 @@ def read_processed_agent_data(processed_agent_data_id: int):
             return None
 
         return ProcessedAgentDataInDB.model_validate(found_record)
-
+#видає всі ентіті
 @app.get("/processed_agent_data/", response_model=List[ProcessedAgentDataInDB])
 def list_processed_agent_data():
     # Retrieves all processed agent data entries.
@@ -190,13 +186,13 @@ def list_processed_agent_data():
         return session.query(ProcessedAgentDataDbModel).all()
 
     return null
-
+#оновлює одну ентіті згідно айді
 @app.put(
     "/processed_agent_data/{processed_agent_data_id}",
     response_model=ProcessedAgentDataInDB,
 )
 async def update_processed_agent_data(processed_agent_data_id: int, data: ProcessedAgentData):
-    #Updates a single processed agent data entry.
+    # Updates a single processed agent data entry.
     with SessionLocal() as session:
         updated_entry = session.query(ProcessedAgentDataDbModel).get(processed_agent_data_id)
         if updated_entry is None:
@@ -221,7 +217,7 @@ async def update_processed_agent_data(processed_agent_data_id: int, data: Proces
 
         return ProcessedAgentDataInDB.model_validate(updated_entry)
 
-
+#Видаляє ентіті з ліста та БД
 @app.delete(
     "/processed_agent_data/{processed_agent_data_id}",
     response_model=ProcessedAgentDataInDB,
